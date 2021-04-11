@@ -31,7 +31,7 @@ public class MateriaController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<MateriaEntity> consultaMateria(@PathVariable Long id) {
-		return ResponseEntity.status(HttpStatus.OK).body(this.materiaService.consultar(id).get());
+		return ResponseEntity.status(HttpStatus.OK).body(this.materiaService.consultar(id));
 	}
 
 	
@@ -42,7 +42,7 @@ public class MateriaController {
 
 	@PostMapping
 	public ResponseEntity<Boolean> cadastrarMateria(@RequestBody MateriaEntity materia) {
-		return ResponseEntity.status(HttpStatus.OK).body(this.materiaService.cadastrar(materia));
+		return ResponseEntity.status(HttpStatus.CREATED).body(this.materiaService.cadastrar(materia));
 	}
 
 	@DeleteMapping("/{id}")
